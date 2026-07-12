@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+/* ============================================================
+   The Ascend — design tokens
+   Drawn from the brand logo: a royal-blue → teal → green swoosh
+   over charcoal type. Blue-navy carries dark sections, ascent
+   green is the single accent. Never dead gray.
+   ============================================================ */
+
+:root {
+  /* Royal-blue → teal scale (OKLCH, hue drifts 272 → 205 up the ramp,
+     tracing the logo swoosh) */
+  --summit-950: oklch(16% 0.04 272);
+  --summit-900: oklch(21% 0.055 270);
+  --summit-800: oklch(27% 0.07 268);
+  --summit-700: oklch(36% 0.105 268);
+  --summit-600: oklch(46% 0.105 255);
+  --summit-500: oklch(56% 0.095 235);
+  --summit-400: oklch(66% 0.085 220);
+  --summit-300: oklch(75% 0.065 205);
+  --summit-200: oklch(86% 0.04 200);
+  --summit-100: oklch(92.5% 0.025 200);
+  --summit-50: oklch(96.5% 0.012 210);
+
+  /* Ascent-green accent (the swoosh tip) */
+  --dawn-600: oklch(60% 0.125 162);
+  --dawn-500: oklch(70% 0.13 158);
+  --dawn-400: oklch(79% 0.125 155);
+  --dawn-300: oklch(88% 0.08 152);
+
+  /* Tinted neutrals — charcoal ink like the logotype, cool undertone */
+  --ink: oklch(23% 0.012 270);
+  --ink-soft: oklch(42% 0.012 268);
+  --ink-faint: oklch(57% 0.01 265);
+  --bg: oklch(98.6% 0.002 240);
+  --surface: oklch(96.8% 0.007 240);
+  --line: oklch(90% 0.01 250);
+  --line-strong: oklch(84% 0.012 250);
+  --white: oklch(100% 0 0);
+
+  /* On-dark tints */
+  --mist: oklch(93% 0.012 240);
+  --mist-soft: oklch(78% 0.02 240);
+
+  /* Signature gradients — --grad-dawn is the logo swoosh */
+  --grad-dark: linear-gradient(165deg, var(--summit-950) 0%, var(--summit-800) 100%);
+  --grad-brand: linear-gradient(135deg, var(--summit-700) 0%, var(--summit-500) 100%);
+  --grad-dawn: linear-gradient(110deg, var(--summit-700) 0%, var(--summit-400) 50%, var(--dawn-500) 100%);
+
+  /* Font wiring */
+  --font-heading: var(--font-display, ui-serif), Georgia, serif;
+  --font-text: var(--font-body, ui-sans-serif), system-ui, sans-serif;
+
+  /* Motion */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Elevation — deep-teal shadows, never harsh black */
+  --shadow-sm: 0 1px 2px oklch(21% 0.04 195 / 0.06), 0 1px 3px oklch(21% 0.04 195 / 0.05);
+  --shadow-md: 0 4px 14px oklch(21% 0.04 195 / 0.09), 0 2px 4px oklch(21% 0.04 195 / 0.05);
+  --shadow-lg: 0 20px 45px oklch(21% 0.04 195 / 0.13), 0 6px 14px oklch(21% 0.04 195 / 0.07);
+}
+
+@theme inline {
+  --color-summit-950: var(--summit-950);
+  --color-summit-900: var(--summit-900);
+  --color-summit-800: var(--summit-800);
+  --color-summit-700: var(--summit-700);
+  --color-summit-600: var(--summit-600);
+  --color-summit-500: var(--summit-500);
+  --color-summit-400: var(--summit-400);
+  --color-summit-300: var(--summit-300);
+  --color-summit-200: var(--summit-200);
+  --color-summit-100: var(--summit-100);
+  --color-summit-50: var(--summit-50);
+
+  --color-dawn-600: var(--dawn-600);
+  --color-dawn-500: var(--dawn-500);
+  --color-dawn-400: var(--dawn-400);
+  --color-dawn-300: var(--dawn-300);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-mist: var(--mist);
+  --color-mist-soft: var(--mist-soft);
+
+  --font-sans: var(--font-text);
+  --font-display: var(--font-heading);
+
+  --radius-pill: 999px;
+}
+
+@layer base {
+  * { border-color: var(--line); box-sizing: border-box; }
+
+  html {
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+    font-optical-sizing: auto;
+    overflow-x: clip;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-text);
+    font-size: 1rem;
+    line-height: 1.65;
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+    text-wrap: balance;
+    color: inherit;
+    font-weight: 550;
+  }
+
+  p { text-wrap: pretty; }
+
+  :focus-visible {
+    outline: 2.5px solid var(--summit-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--summit-600);
+    color: var(--white);
+  }
+}
+
+@layer utilities {
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  .container-asc {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4.5vw, 2.75rem);
+  }
+
+  .section-pad { padding-block: clamp(4rem, 9vw, 7.5rem); }
+  .section-pad-tight { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+  .section-pad-loose { padding-block: clamp(5rem, 11vw, 9rem); }
+
+  /* Kicker label — used selectively */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--summit-600);
+  }
+  .kicker::before {
+    content: "";
+    display: block;
+    width: 1.6rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--grad-dawn);
+    flex-shrink: 0;
+  }
+  .kicker--dark { color: var(--mist-soft); }
+  .kicker--dark::before { background: var(--dawn-500); }
+
+  /* Fine film grain — tactile weight without muddying text */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+
+  /* Soft fog behind the inset hero card, so the frame around it reads as
+     misty sky instead of flat white. Fades out toward the page body. */
+  .hero-fog {
+    background:
+      radial-gradient(52% 62% at 10% 0%, oklch(27% 0.07 268 / 0.8), transparent 72%),
+      radial-gradient(48% 58% at 90% 4%, oklch(36% 0.105 268 / 0.7), transparent 72%),
+      radial-gradient(70% 45% at 50% 100%, oklch(46% 0.105 255 / 0.4), transparent 78%),
+      linear-gradient(to bottom, oklch(21% 0.055 270 / 0.85), oklch(36% 0.105 268 / 0.35) 60%, transparent 100%);
+  }
+
+  /* Teal-green glow for layering behind dark sections */
+  .glow-dawn {
+    background: radial-gradient(55% 55% at 50% 0%, oklch(66% 0.085 220 / 0.22), transparent 70%);
+  }
+  .glow-teal {
+    background: radial-gradient(60% 60% at 50% 100%, oklch(36% 0.105 268 / 0.45), transparent 70%);
+  }
+
+  /* Animated underline for inline editorial links */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover { background-size: 100% 1.5px; }
+}
+
+/* ---------- Loader ---------- */
+@keyframes asc-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Marquee ---------- */
+@keyframes asc-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.asc-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: asc-marquee 42s linear infinite;
+}
+.asc-marquee:hover .asc-marquee-track { animation-play-state: paused; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
