@@ -39,6 +39,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="flex min-h-svh flex-col antialiased">
+        <noscript>
+          <style>{".asc-loader{display:none}"}</style>
+        </noscript>
         <PageLoader />
         <SmoothScroll />
         <ScrollProgress />

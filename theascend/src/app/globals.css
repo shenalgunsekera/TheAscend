@@ -220,8 +220,10 @@
 }
 
 /* ---------- Loader ---------- */
-@keyframes asc-ring-spin {
-  to { transform: rotate(360deg); }
+/* The curtain ships in the server HTML for a flash-free first paint;
+   reduced-motion users skip the intro entirely, before hydration. */
+@media (prefers-reduced-motion: reduce) {
+  .asc-loader { display: none; }
 }
 
 /* ---------- Marquee ---------- */

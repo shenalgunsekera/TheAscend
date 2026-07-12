@@ -10,19 +10,20 @@ const EASE_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
 /**
  * Brand intro on every full page load: deep-summit curtain, wordmark settles
  * in, a giant counter surges to 100, then the curtain lifts to reveal the
- * page. Reduced-motion users skip straight to the page.
+ * page. The curtain is part of the server-rendered HTML so it is on screen
+ * from the very first paint (no flash of the page before it). Reduced-motion
+ * users never see it: CSS hides `.asc-loader` for them before hydration.
  */
 export function PageLoader() {
   const reduce = useReducedMotion();
   const [phase, setPhase] = useState<"loading" | "done">("loading");
   const [progress, setProgress] = useState(0);
-  const [armed, setArmed] = useState(false);
 
   useEffect(() => {
-    // Reduced motion: never arm, so the loader simply never renders.
     if (reduce) {
       boot.done = true;
-      return;
+      const t = setTimeout(() => setPhase("done"), 0);
+      return () => clearTimeout(t);
     }
     document.documentElement.style.overflow = "hidden";
 
@@ -30,7 +31,6 @@ export function PageLoader() {
     const DURATION = 1500;
     let raf = 0;
     const tick = (now: number) => {
-      setArmed(true);
       const t = Math.min(1, (now - start) / DURATION);
       // ease-out-expo on the counter so it surges then settles
       const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
@@ -56,14 +56,12 @@ export function PageLoader() {
     if (phase === "done") document.documentElement.style.overflow = "";
   }, [phase]);
 
-  if (!armed) return null;
-
   return (
     <AnimatePresence>
       {phase === "loading" && (
         <motion.div
           key="loader"
-          className="fixed inset-0 z-[1000] flex flex-col justify-between overflow-hidden bg-(image:--grad-dark) p-[clamp(1.5rem,4vw,3rem)] text-white"
+          className="asc-loader fixed inset-0 z-[1000] flex flex-col justify-between overflow-hidden bg-(image:--grad-dark) p-[clamp(1.5rem,4vw,3rem)] text-white"
           initial={{ opacity: 1 }}
           exit={{ y: "-100%" }}
           transition={{ duration: 0.9, ease: EASE_EXPO }}
