@@ -194,10 +194,10 @@
      misty sky instead of flat white. Fades out toward the page body. */
   .hero-fog {
     background:
-      radial-gradient(52% 62% at 10% 0%, oklch(27% 0.07 268 / 0.8), transparent 72%),
-      radial-gradient(48% 58% at 90% 4%, oklch(36% 0.105 268 / 0.7), transparent 72%),
-      radial-gradient(70% 45% at 50% 100%, oklch(46% 0.105 255 / 0.4), transparent 78%),
-      linear-gradient(to bottom, oklch(21% 0.055 270 / 0.85), oklch(36% 0.105 268 / 0.35) 60%, transparent 100%);
+      radial-gradient(52% 62% at 10% 0%, oklch(36% 0.105 268 / 0.55), transparent 70%),
+      radial-gradient(48% 58% at 90% 4%, oklch(46% 0.105 255 / 0.5), transparent 70%),
+      radial-gradient(70% 45% at 50% 100%, oklch(56% 0.095 235 / 0.3), transparent 75%),
+      linear-gradient(to bottom, oklch(27% 0.07 268 / 0.6), oklch(46% 0.105 255 / 0.25) 60%, transparent 100%);
   }
 
   /* Teal-green glow for layering behind dark sections */

@@ -60,7 +60,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 60, filter: "blur(14px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.2, delay: T0, ease: EASE }}
-            className="font-display text-[clamp(4.9rem,16vw,13rem)] leading-[0.9] tracking-[-0.03em] text-mist"
+            className="font-display text-[clamp(4.2rem,15vw,13rem)] leading-[0.9] tracking-[-0.03em] text-mist"
           >
             Ascend
             <motion.span
@@ -75,20 +75,11 @@ export function Hero() {
 
           {/* Mission + CTA */}
           <div className="flex max-w-md flex-col items-start gap-6 lg:pb-4">
-            <motion.span
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: T0 + 0.25, ease: EASE }}
-              className="text-[0.72rem] font-bold tracking-[0.24em] text-mist-soft uppercase lg:hidden"
-            >
-              Talent · Leadership · Culture
-            </motion.span>
-
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: T0 + 0.35, ease: EASE }}
-              className="border-l-2 border-dawn-500/70 pl-4 text-[clamp(1rem,1.4vw,1.15rem)] leading-relaxed text-mist lg:border-0 lg:pl-0"
+              className="text-[clamp(1rem,1.4vw,1.15rem)] leading-relaxed text-mist"
             >
               <span className="text-white">Your partner for people transformation.</span>{" "}
               Shape your organization&rsquo;s future and let The Ascend align
@@ -99,14 +90,13 @@ export function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: T0 + 0.55, ease: EASE }}
-              className="max-lg:w-full"
             >
               <Link
                 href="/#contact"
-                className="group inline-flex items-center gap-3 rounded-pill bg-white py-2.5 pr-2.5 pl-7 font-semibold text-summit-900 transition-all duration-300 hover:bg-dawn-300 active:scale-[0.98] max-lg:w-full max-lg:justify-between max-lg:py-3 max-lg:text-lg"
+                className="group inline-flex items-center gap-3 rounded-pill bg-white py-2.5 pr-2.5 pl-7 font-semibold text-summit-900 transition-all duration-300 hover:bg-dawn-300 active:scale-[0.98]"
               >
                 Start the climb
-                <span className="grid size-10 place-items-center rounded-full bg-summit-900 text-white transition-transform duration-500 group-hover:rotate-[-45deg] max-lg:size-11">
+                <span className="grid size-10 place-items-center rounded-full bg-summit-900 text-white transition-transform duration-500 group-hover:rotate-[-45deg]">
                   <ArrowRight className="size-4" aria-hidden />
                 </span>
               </Link>
