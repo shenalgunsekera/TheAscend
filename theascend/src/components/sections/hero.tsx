@@ -60,7 +60,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 60, filter: "blur(14px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.2, delay: T0, ease: EASE }}
-            className="font-display text-[clamp(4.2rem,15vw,13rem)] leading-[0.9] tracking-[-0.03em] text-mist"
+            className="font-display text-[clamp(4.2rem,15vw,13rem)] leading-[0.9] tracking-[-0.03em] whitespace-nowrap text-mist"
           >
             Ascend
             <motion.span
