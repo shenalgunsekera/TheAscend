@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Figtree } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -7,16 +7,18 @@ import { PageLoader } from "@/components/page-loader";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
-const display = Fraunces({
+// Noto Sans throughout — matching ccl.org (Center for Creative Leadership).
+const display = Noto_Sans({
   subsets: ["latin"],
   variable: "--font-display",
-  axes: ["opsz", "SOFT", "WONK"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const body = Figtree({
+const body = Noto_Sans({
   subsets: ["latin"],
   variable: "--font-body",
+  style: ["normal", "italic"],
   display: "swap",
 });
 

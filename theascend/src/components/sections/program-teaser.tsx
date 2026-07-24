@@ -12,7 +12,7 @@ export function ProgramTeaser() {
       {/* Backdrop photo, heavily veiled */}
       <div aria-hidden className="absolute inset-0">
         <Image
-          src={img.conferenceDark}
+          src={img.programWorkshop}
           alt=""
           fill
           sizes="100vw"

@@ -32,23 +32,25 @@
   --ink: oklch(23% 0.012 270);
   --ink-soft: oklch(42% 0.012 268);
   --ink-faint: oklch(57% 0.01 265);
-  --bg: oklch(98.6% 0.002 240);
-  --surface: oklch(96.8% 0.007 240);
-  --line: oklch(90% 0.01 250);
-  --line-strong: oklch(84% 0.012 250);
+  --bg: oklch(99% 0.004 200);
+  --surface: oklch(97.4% 0.012 200);
+  --line: oklch(91% 0.014 205);
+  --line-strong: oklch(85% 0.016 205);
   --white: oklch(100% 0 0);
 
   /* On-dark tints */
   --mist: oklch(93% 0.012 240);
   --mist-soft: oklch(78% 0.02 240);
 
-  /* Signature gradients — --grad-dawn is the logo swoosh */
-  --grad-dark: linear-gradient(165deg, var(--summit-950) 0%, var(--summit-800) 100%);
+  /* Signature gradients — --grad-dawn is the logo swoosh.
+     grad-dark lightened toward the logo's teal end (was 950→800); white
+     text stays well within AA contrast on both stops. */
+  --grad-dark: linear-gradient(160deg, var(--summit-900) 0%, var(--summit-600) 100%);
   --grad-brand: linear-gradient(135deg, var(--summit-700) 0%, var(--summit-500) 100%);
   --grad-dawn: linear-gradient(110deg, var(--summit-700) 0%, var(--summit-400) 50%, var(--dawn-500) 100%);
 
-  /* Font wiring */
-  --font-heading: var(--font-display, ui-serif), Georgia, serif;
+  /* Font wiring — Noto Sans throughout (ccl.org) */
+  --font-heading: var(--font-display, ui-sans-serif), system-ui, sans-serif;
   --font-text: var(--font-body, ui-sans-serif), system-ui, sans-serif;
 
   /* Motion */

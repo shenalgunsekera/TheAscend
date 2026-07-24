@@ -39,7 +39,7 @@ export function WhoWeAre() {
             <span className="kicker">Who we are</span>
           </Reveal>
           <Reveal kind="blur" as="h2">
-            <span className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-[1.1] tracking-tight text-ink">
+            <span className="font-display text-[clamp(2.3rem,4.8vw,3.6rem)] leading-[1.08] tracking-tight text-ink">
               We see potential where others see{" "}
               <em className="text-summit-600 italic">possibility</em>.
             </span>

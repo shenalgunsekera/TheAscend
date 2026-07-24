@@ -28,8 +28,8 @@ const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const img = {
-  /* The one landscape kept by request: the summit hero */
-  heroSummit: u("photo-1506905925346-21bda4d32df4", 2200),
+  /* The one landscape kept by request: the summit hero (lighter crop) */
+  heroSummit: u("photo-1464822759023-fed622ff2c3b", 2200),
 
   /* People & workplace photography (all subjects verified) */
   teamLaughing: u("photo-1522202176988-66273c2fd55f"),
@@ -51,6 +51,20 @@ export const img = {
   laptopLearning: u("photo-1501504905252-473c47e087f8"),
   whiteboard: u("photo-1531482615713-2afd69097998"),
   mentoring: u("photo-1600880292203-757bb62b4baf"),
+
+  /* --- Service & section imagery (all verified in this pass) --- */
+  talentTeam: u("photo-1543269865-cbf427effbad", 1600),
+  leadershipAssess: u("photo-1552664730-d307ca884978", 1600),
+  surveyExpressions: u("photo-1522202176988-66273c2fd55f", 1600),
+  coachingOneToOne: u("photo-1573497620053-ea5300f94f21", 1400),
+  aboutStory: u("photo-1540575467063-178a50c2df87", 2000),
+  whyChoose: u("photo-1531545514256-b1400bc00f31", 1600),
+  ctaTeam: u("photo-1556761175-b413da4baf72", 2000),
+  programWorkshop: u("photo-1552581234-26160f608093", 2000),
+  perspectivesHands: u("photo-1591115765373-5207764f72e7", 2000),
+  visionImg: u("photo-1517245386807-bb43f82c33c4", 1200),
+  missionImg: u("photo-1600880292089-90a7e086ee0c", 1200),
+  beliefImg: u("photo-1521737711867-e3b97375f902", 1200),
 };
 
 /* ---------------- Services ---------------- */
@@ -70,9 +84,9 @@ export const services: Service[] = [
     slug: "talent-management",
     title: "Talent Management Services",
     short:
-      "Identify, develop, and retain top talent through strategic consulting, 9-box assessments, succession planning, and tailored development plans.",
+      "Identify, develop, and retain your organization's top talent through talent assessment, succession planning, and leadership development.",
     pitch:
-      "We partner with you to design talent strategies that identify, grow, and retain high-potential individuals, so you're never caught off guard by talent gaps. Let's future-proof your workforce.",
+      "Identify, develop, and retain your organization's top talent through a strategic approach to talent assessment, succession planning, and leadership development. We help align your talent strategy with your business goals, ensuring you have a strong leadership pipeline and the right people ready for future success.",
     offers: [
       "Strategic Talent Management Consultancy",
       "Tailored Talent Strategy Development",
@@ -81,24 +95,24 @@ export const services: Service[] = [
       "Development Planning for Future Leaders",
       "Customised Leadership Coaching",
     ],
-    image: img.whiteboardStrategy,
-    imageAlt: "Team mapping out a talent strategy on a whiteboard",
+    image: img.talentTeam,
+    imageAlt: "A small team reviewing talent plans together",
   },
   {
     slug: "leadership-assessments",
     title: "Leadership Assessments",
     short:
-      "Reveal current capabilities and development needs with multi-perspective feedback aligned to your leadership framework.",
+      "Assess leadership strengths and identify development opportunities through multi-source feedback aligned with your leadership competency framework.",
     pitch:
-      "Are you uncertain whether your leaders are ready to meet tomorrow's challenges? We help you pinpoint leadership strengths and gaps with science-backed tools, so you can build a leadership pipeline that is aligned, agile, and equipped for impact.",
+      "Assess leadership strengths and identify development opportunities through multi-source feedback aligned with your organization's leadership competency framework.",
     offers: [
       "360° Feedback Surveys (Design, Rollout, Reporting)",
       "Leadership Competency Frameworks",
       "Custom Leadership Assessments",
       "Personality Tools (Hogan, MBTI, DISC, etc.)",
     ],
-    image: img.mentoring,
-    imageAlt: "Two professionals in a coaching conversation",
+    image: img.leadershipAssess,
+    imageAlt: "Leaders reviewing assessment feedback in a meeting",
   },
   {
     slug: "employee-surveys",
@@ -111,27 +125,45 @@ export const services: Service[] = [
       "Customized Employee Engagement Surveys",
       "Pulse Checks & Feedback Snapshots",
       "Culture Diagnostics & Alignment Solutions",
-      "Exit & Stay Interviews",
       "Action Planning Based on Survey Insights",
+      "Exit Interview Insight Analysis and Action Planning",
     ],
-    image: img.teamHands,
-    imageAlt: "Hands joined together, symbolizing teamwork and collaboration",
+    image: img.surveyExpressions,
+    imageAlt: "Colleagues sharing candid feedback in a bright office",
   },
   {
     slug: "learning-management",
     title: "Learning Management Solutions",
     short:
-      "Custom e-learning, microlearning, and full LMS support that grow capability without slowing your team down.",
+      "Meaningful, modern learning experiences that strengthen capability and support business agility without overwhelming your team.",
     pitch:
-      "Training shouldn't be generic or hard to access. We design meaningful, modern learning experiences tailored to your business: a scalable, digital-first learning ecosystem that drives employee capability and business agility without overwhelming your team.",
+      "Training should be easy to access, simple to follow, and enjoyable for every user. We create meaningful, modern learning experiences tailored to your business, building a scalable, digital-first learning ecosystem that strengthens employee capability and supports business agility without overwhelming your team.",
     offers: [
       "Bespoke E-Learning Module Creation",
       "Microlearning Solutions for Fast Skill Building",
       "LMS Hosting, User Support & Technical Admin",
-      "Learning Experience Strategy & Digital Content",
+      "Learning Experience Strategy & Digital Content Creation",
     ],
     image: img.laptopLearning,
     imageAlt: "Person learning on a laptop in a bright workspace",
+  },
+  {
+    slug: "leadership-coaching",
+    title: "Leadership Coaching",
+    short:
+      "Develop confident, resilient leaders who drive performance and lasting organisational success through personalized, competency-based coaching.",
+    pitch:
+      "Develop confident, resilient leaders who drive performance and lasting organisational success. We partner with organizations to develop high-performing leaders and employees through personalized, competency-based coaching. Our coaching identifies individual development needs, aligns growth with organizational goals, and creates practical development plans that drive measurable improvement. By combining targeted coaching with ongoing accountability, we help your people build leadership capability, enhance performance, and achieve sustainable growth, strengthening both individual success and organizational effectiveness.",
+    offers: [
+      "Psychometric Assessments — including MBTI® and other validated tools to deepen self-awareness based on the client's requirements",
+      "Personalized, confidential coaching tailored to individual goals and challenges",
+      "Career & Life Planning — supporting clarity on long-term direction and purpose",
+      "Personal Development Planning — creating structured pathways to guide continuous growth",
+      "Progress Reviews & Feedback — ongoing reflection, accountability, and measurable progress tracking",
+      "Post-Program Support — continued guidance to sustain momentum and long-term development",
+    ],
+    image: img.coachingOneToOne,
+    imageAlt: "A one-to-one leadership coaching conversation",
   },
 ];
 
@@ -207,4 +239,47 @@ export const program = {
       body: "Builds self-awareness and informs personal development priorities.",
     },
   ],
+  intro:
+    "Strong leaders are not developed in a single workshop — they grow through a structured learning journey. Our Signature Leadership Development Program is a customised 6–9-month experience designed to strengthen leadership capability while supporting your organisation's strategic goals. We start by understanding your business, culture, and leadership priorities. Before the program begins, each participant completes leadership competency and personality assessments, giving us valuable insights into their strengths and development opportunities. Using these insights, we create a tailored learning journey that combines three interactive workshops, practical workplace application, and ongoing coaching to reinforce learning and encourage lasting behavioural change. By the end of the program, participants have developed the confidence, skills, and mindset to lead more effectively, while your organisation benefits from stronger leadership capability, improved performance, and measurable business outcomes.",
+  whoForTitle: "Who is it for?",
+  whoFor:
+    "This program is ideal for middle managers, team leaders, and professionals who have recently stepped into senior management roles and are responsible for leading people, driving performance, and delivering results.",
 };
+
+/* ---------------- Team ---------------- */
+
+export type Member = {
+  name: string;
+  role: string;
+  credentials: string;
+  image: string;
+  bio: string[];
+};
+
+export const team: Member[] = [
+  {
+    name: "Rukmal Bandaranayake",
+    role: "Chief Consultant",
+    credentials: "Executive Coach · HRM Expert · Leadership Development Facilitator · Faculty Member",
+    image: "/team/rukmal.jpg",
+    bio: [
+      "Rukmal Bandaranayake is an executive coach, leadership development facilitator, and Human Resources professional with more than 15 years of experience leading people and culture initiatives across multinational organisations, including AIA Insurance, MAS Holdings, and HealthRecon Connect LLC.",
+      "He specializes in leadership development, organizational effectiveness, talent management, and executive coaching, helping leaders and teams build capability, navigate change, and achieve strategic outcomes. Known for his engaging facilitation style and practical, business-focused approach, Rukmal delivers coaching and learning experiences that create lasting impact.",
+      "Based in British Columbia, Rukmal currently serves as a faculty member at University Canada West, where he combines academic insight with extensive industry experience to support professionals, managers, and emerging leaders. He holds a Bachelor's degree in Human Resource Management, an MBA, and a Doctor of Business Administration (DBA) from Swiss School of Business and Management. His doctoral research focused on transformational leadership in the healthcare sector in British Columbia, Canada.",
+      "Rukmal is a Certified Executive Coach through the Certified Coaches Federation and an accredited practitioner of the Myers-Briggs Type Indicator. He has also completed executive education at the National University of Singapore. In addition, he is a Chartered Professional in Human Resources (CPHR), a professional member of CIPD, and a member of CIPM Sri Lanka.",
+      "Through coaching, consulting, and leadership development programs, Rukmal partners with organizations to strengthen leadership capability, enhance employee engagement, and build high-performing workplace cultures. His approach combines strategic thinking, evidence-based practice, and genuine empathy to help individuals and organizations thrive.",
+    ],
+  },
+  {
+    name: "Oshan Withanage",
+    role: "Senior Consultant",
+    credentials: "HR Consultant",
+    image: "/team/oshan.jpg",
+    bio: [
+      "Oshan Withanage is an HR Consultant at The Ascend, bringing over six years of progressive experience across the technology, healthcare, and professional services sectors. He specializes in delivering practical, people-centered HR solutions that align workforce strategies with business objectives.",
+      "Throughout his career, Oshan has led HR transformation initiatives, implemented HRIS platforms, designed talent management frameworks, supported organizational restructuring, and partnered with leadership teams to enhance employee engagement, performance, and organizational culture. He has successfully managed HR strategies for workforces of over 1,000 employees and has extensive expertise in talent acquisition, learning and development, leadership assessment, performance management, employee experience, and HR analytics.",
+      "Prior to joining The Ascend, Oshan held senior HR roles at HealthRecon Connect and SLASSCOM, where he drove strategic HR initiatives and contributed to large-scale organizational development and industry-wide capability-building programs.",
+      "Oshan holds postgraduate qualifications in Human Resource Management and Project Management from Conestoga College, Canada, an MBA from Cardiff Metropolitan University, UK, and a Bachelor's degree in Business Management from Uva Wellassa University of Sri Lanka. His consulting approach combines strategic insight, data-driven decision-making, and a commitment to creating meaningful and measurable people outcomes.",
+    ],
+  },
+];

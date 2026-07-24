@@ -13,7 +13,7 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="flex flex-col items-start gap-5">
             <div className="pt-4">
-              <Logo onDark textClass="text-[1.7rem]" />
+              <Logo onDark className="h-11" />
             </div>
             <p className="max-w-sm text-[0.95rem] leading-relaxed text-mist-soft">
               Shape your organization&rsquo;s future and let The Ascend align

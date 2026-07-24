@@ -27,8 +27,8 @@ export default function PerspectivesPage() {
           </>
         }
         lede="Insights on talent, leadership, engagement, and the future of work."
-        image={img.typingDark}
-        imageAlt="Hands typing on a laptop"
+        image={img.perspectivesHands}
+        imageAlt="Professionals in a workshop discussion asking questions"
       />
 
       <section className="section-pad">

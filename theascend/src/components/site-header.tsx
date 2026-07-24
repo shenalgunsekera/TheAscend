@@ -37,10 +37,10 @@ export function SiteHeader() {
         transition={{ duration: 0.9, delay: 1.9, ease: EASE }}
         className="fixed inset-x-0 top-0 z-[600] flex justify-center max-lg:px-3"
       >
-        {/* Tab hanging from the top edge: flat top, rounded bottom corners */}
-        <div className="flex w-full max-w-fit items-center gap-2 rounded-b-2xl border border-t-0 border-white/10 bg-summit-950/85 py-1 pr-2 pl-5 shadow-(--shadow-lg) backdrop-blur-xl max-lg:w-full max-lg:max-w-none max-lg:justify-between max-lg:py-1.5 max-lg:pr-2.5 sm:pl-7">
+        {/* Light frosted-glass tab hanging from the top edge */}
+        <div className="flex w-full max-w-fit items-center gap-2 rounded-b-2xl border border-t-0 border-summit-100 bg-white/80 py-1 pr-2 pl-5 shadow-(--shadow-md) backdrop-blur-xl max-lg:w-full max-lg:max-w-none max-lg:justify-between max-lg:py-1.5 max-lg:pr-2.5 sm:pl-7">
           <Link href="/" aria-label="The Ascend home page" className="block py-1">
-            <Logo onDark textClass="text-[1.15rem] lg:text-[1.02rem]" />
+            <Logo priority className="h-7 lg:h-6" />
           </Link>
 
           {/* Desktop links */}
@@ -54,8 +54,8 @@ export function SiteHeader() {
                     className={cn(
                       "relative block rounded-lg px-3.5 py-2 text-[0.9rem] font-medium whitespace-nowrap transition-colors duration-300",
                       isActive(item.href)
-                        ? "text-white"
-                        : "text-mist-soft hover:bg-white/8 hover:text-white",
+                        ? "text-summit-800"
+                        : "text-ink-soft hover:bg-summit-50 hover:text-summit-700",
                     )}
                   >
                     {item.label}
@@ -77,7 +77,7 @@ export function SiteHeader() {
             onClick={() => setMenu(!open)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid size-10 place-items-center rounded-lg bg-white/10 text-white transition-colors hover:bg-white/20 lg:hidden"
+            className="grid size-10 place-items-center rounded-lg bg-summit-50 text-ink transition-colors hover:bg-summit-100 lg:hidden"
           >
             {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
           </button>
@@ -92,7 +92,7 @@ export function SiteHeader() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: EASE }}
-            className="fixed inset-0 z-[590] flex flex-col justify-center bg-summit-950/97 px-8 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[590] flex flex-col justify-center bg-bg/97 px-8 backdrop-blur-xl lg:hidden"
           >
             <nav aria-label="Mobile">
               <ul className="flex flex-col gap-2">
@@ -108,7 +108,7 @@ export function SiteHeader() {
                       onClick={() => setMenu(false)}
                       className={cn(
                         "font-display block py-2 text-4xl tracking-tight transition-colors",
-                        isActive(item.href) ? "text-dawn-400" : "text-white hover:text-dawn-300",
+                        isActive(item.href) ? "text-summit-700" : "text-ink hover:text-summit-600",
                       )}
                     >
                       {item.label}

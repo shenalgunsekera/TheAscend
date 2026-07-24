@@ -18,8 +18,8 @@ export function CtaBand({
         <Reveal kind="scale">
           <div className="relative overflow-hidden rounded-[2rem] bg-summit-950 text-white">
             <div aria-hidden className="absolute inset-0">
-              <Image src={img.handshake} alt="" fill sizes="100vw" className="object-cover opacity-30" />
-              <div className="absolute inset-0 bg-linear-to-r from-summit-950 via-summit-950/70 to-summit-900/40" />
+              <Image src={img.ctaTeam} alt="" fill sizes="100vw" className="object-cover object-center opacity-60" />
+              <div className="absolute inset-0 bg-linear-to-r from-summit-950 via-summit-950/60 to-summit-900/15" />
             </div>
             <div className="relative flex flex-col items-start gap-6 p-[clamp(2rem,6vw,4.5rem)] lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">

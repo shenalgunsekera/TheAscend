@@ -10,7 +10,7 @@ import { img, program } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Our Signature Program",
   description:
-    "The Ascend Signature Leadership Program: customised, end-to-end learning journeys built for retention, application, and measurable impact.",
+    "The Ascend Signature Leadership Development Program: a customised 6–9-month journey built for retention, application, and measurable impact.",
 };
 
 const impactIcons = [TrendingUp, Users, Target, Sparkles];
@@ -24,12 +24,12 @@ export default function ProgramPage() {
         kicker="Our Signature Program"
         title={
           <>
-            The Ascend Signature <em className="text-dawn-400 italic">Leadership Program</em>
+            The Ascend Signature <em className="text-dawn-400 italic">Leadership Development</em> Program
           </>
         }
-        lede="Customised, end-to-end learning experiences that are strategic for the business, relevant to the team, and transformational for every learner."
-        image={img.lectureHall}
-        imageAlt="Speakers in front of a full lecture hall"
+        lede="A customised 6–9-month journey that strengthens leadership capability while supporting your organisation's strategic goals."
+        image={img.programWorkshop}
+        imageAlt="A small team engaging together in a leadership workshop"
       />
 
       {/* Intro + impact */}
@@ -45,15 +45,7 @@ export default function ProgramPage() {
               }
             />
             <Reveal kind="up" delay={0.12} as="p">
-              <span className="text-[1.05rem] leading-relaxed text-ink-soft">
-                We begin by understanding your organisation&rsquo;s strategy,
-                culture, and people. From there we create tailored learning pathways
-                that build role-relevant skills, reinforce high-performance
-                behaviours, and drive measurable workplace impact. Whether
-                developing leaders, enhancing functional capability, or
-                transforming teams, these immersive learning journeys align
-                talent development with business goals.
-              </span>
+              <span className="text-[1.05rem] leading-relaxed text-ink-soft">{program.intro}</span>
             </Reveal>
           </div>
 
@@ -176,6 +168,23 @@ export default function ProgramPage() {
               );
             })}
           </RevealGroup>
+        </div>
+      </section>
+
+      {/* Who is it for */}
+      <section className="section-pad">
+        <div className="container-asc">
+          <Reveal kind="scale">
+            <div className="relative overflow-hidden rounded-[clamp(1.4rem,3vw,2.2rem)] border border-summit-100 bg-summit-50 p-[clamp(2rem,6vw,4.5rem)]">
+              <div aria-hidden className="glow-dawn pointer-events-none absolute inset-x-0 top-0 h-1/2" />
+              <div className="relative mx-auto max-w-3xl text-center">
+                <span className="kicker mx-auto w-fit">{program.whoForTitle}</span>
+                <p className="mt-5 font-display text-[clamp(1.4rem,3vw,2.1rem)] leading-snug tracking-tight text-ink">
+                  {program.whoFor}
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

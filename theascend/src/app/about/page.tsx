@@ -5,7 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
-import { img } from "@/lib/site";
+import { img, team } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -18,18 +18,38 @@ const pillars = [
     icon: Eye,
     title: "Our Vision",
     body: "Transforming people, elevating performance, and shaping the future.",
+    image: img.visionImg,
+    imageAlt: "A candid strategy discussion in progress",
   },
   {
     icon: Compass,
     title: "Our Mission",
     body: "We help organisations grow by unlocking talent, building strong leaders, and creating engaging learning experiences that drive lasting results.",
+    image: img.missionImg,
+    imageAlt: "Diverse colleagues joining hands over a table",
   },
   {
     icon: Heart,
     title: "Our Belief",
     body: "Sustainable organizational transformation begins with people. When people grow, organizations ascend.",
+    image: img.beliefImg,
+    imageAlt: "A team collaborating around a shared table",
   },
 ];
+
+/** Initials fallback avatar when a team photo hasn't been supplied yet. */
+function Monogram({ name }: { name: string }) {
+  const initials = name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("");
+  return (
+    <div className="grid h-full w-full place-items-center bg-(image:--grad-dark)">
+      <span className="font-display text-5xl text-mist">{initials}</span>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -42,8 +62,8 @@ export default function AboutPage() {
           </>
         }
         lede="Helping leaders and teams thrive in a complex world."
-        image={img.openOffice}
-        imageAlt="A team collaborating in an open office"
+        image={img.aboutStory}
+        imageAlt="Professionals gathered in a corporate setting"
       />
 
       {/* Our story */}
@@ -89,12 +109,23 @@ export default function AboutPage() {
           <RevealGroup className="grid gap-6 md:grid-cols-3" stagger={0.12}>
             {pillars.map((p) => (
               <RevealItem key={p.title} kind="up" as="article">
-                <div className="flex h-full flex-col gap-4 rounded-3xl bg-white p-8 shadow-(--shadow-sm) transition-all duration-500 hover:-translate-y-1 hover:shadow-(--shadow-md)">
-                  <span className="grid size-12 place-items-center rounded-full bg-summit-50 text-summit-600">
-                    <p.icon className="size-5" strokeWidth={1.8} aria-hidden />
-                  </span>
-                  <h2 className="font-display text-2xl tracking-tight text-ink">{p.title}</h2>
-                  <p className="leading-relaxed text-ink-soft">{p.body}</p>
+                <div className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-(--shadow-sm) transition-all duration-500 hover:-translate-y-1 hover:shadow-(--shadow-md)">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={p.image}
+                      alt={p.imageAlt}
+                      fill
+                      sizes="(min-width: 768px) 30vw, 90vw"
+                      className="object-cover transition-transform duration-700 hover:scale-[1.05]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-4 p-8">
+                    <span className="-mt-14 grid size-12 place-items-center rounded-full border-4 border-white bg-summit-50 text-summit-600 shadow-(--shadow-sm)">
+                      <p.icon className="size-5" strokeWidth={1.8} aria-hidden />
+                    </span>
+                    <h2 className="font-display text-2xl tracking-tight text-ink">{p.title}</h2>
+                    <p className="leading-relaxed text-ink-soft">{p.body}</p>
+                  </div>
                 </div>
               </RevealItem>
             ))}
@@ -108,8 +139,8 @@ export default function AboutPage() {
           <Reveal kind="left" className="order-2 lg:order-1">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-(--shadow-lg)">
               <Image
-                src={img.teamAbove}
-                alt="A team working together around a shared table"
+                src={img.whyChoose}
+                alt="A diverse team collaborating around a laptop"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className="object-cover transition-transform duration-700 hover:scale-[1.04]"
@@ -142,6 +173,58 @@ export default function AboutPage() {
                 organizations can thrive.
               </span>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Our team */}
+      <section className="section-pad bg-surface">
+        <div className="container-asc">
+          <SectionHeading
+            align="center"
+            kicker="Our Team"
+            title={
+              <>
+                The people behind <em className="text-summit-600 italic">your transformation</em>
+              </>
+            }
+          />
+          <div className="mt-14 flex flex-col gap-8">
+            {team.map((m, i) => (
+              <Reveal key={m.name} kind="up">
+                <article className="grid gap-8 overflow-hidden rounded-3xl bg-white p-6 shadow-(--shadow-sm) sm:p-8 lg:grid-cols-[300px_1fr] lg:gap-10">
+                  <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-summit-50">
+                      {m.image ? (
+                        <Image
+                          src={m.image}
+                          alt={m.name}
+                          fill
+                          sizes="(min-width: 1024px) 300px, 90vw"
+                          className="object-cover object-top"
+                        />
+                      ) : (
+                        <Monogram name={m.name} />
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start gap-3">
+                    <span className="kicker">{m.role}</span>
+                    <h3 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] tracking-tight text-ink">
+                      {m.name}
+                    </h3>
+                    <p className="text-sm font-medium text-summit-600">{m.credentials}</p>
+                    <div className="mt-2 flex flex-col gap-3">
+                      {m.bio.map((para, j) => (
+                        <p key={j} className="text-[0.98rem] leading-relaxed text-ink-soft">
+                          {para}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

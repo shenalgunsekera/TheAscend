@@ -80,7 +80,7 @@ export function PageLoader() {
             transition={{ duration: 0.8, ease: EASE_EXPO }}
             className="relative pt-4 pl-1"
           >
-            <Logo onDark textClass="text-[1.7rem]" />
+            <Logo onDark className="h-12" />
           </motion.div>
 
           {/* Centre line */}

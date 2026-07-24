@@ -29,7 +29,7 @@ export function WhatWeDo() {
           </Reveal>
         </div>
 
-        <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4" stagger={0.1}>
+        <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
           {services.map((s) => (
             <RevealItem key={s.slug} kind="up" as="article">
               <Link
